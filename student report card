@@ -1,0 +1,35 @@
+
+echo "ENTER THE NUMBER OF STUDENTS"
+read n
+s=0
+for (( i=1; i<=n; i++ ))
+do
+    read -p"ENTER THE NAME: " name
+    read -p "ENTER THE REGISTER NUMBER: " regn
+					
+    echo "ENTER THE MARKS"
+    for(( j=1; j<=4; j++ ))
+    do
+        read mark[j]
+    done
+    for k in ${mark[@]};
+    do
+        s=$(($s+$k))
+        avg=$(($s/4))
+	if [ $avg -ge 50 -a $avg -le 100 ]
+	then
+		s="A+"
+	else 
+ 		s="A"
+	fi
+    done
+
+    echo -e "******WELCOME*****\n">$regn     	
+    echo "REPORT CARD">>$regn
+    echo -e "NAME OF THE STUDENT: $name">>$regn
+    echo -e "REGISTRATION ID: $regn">>$regn
+    echo -e "AVERAGE MARKS SECURED: $avg">>$regn
+    echo -e "GRADE SECURED: $s">>$regn
+   
+   
+done
