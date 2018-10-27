@@ -1,0 +1,7 @@
+#! /bin/sh
+read -p "enter the name of the file " file
+if [ ! -f $file ]
+then
+	echo "$file is not valid"
+fi
+tr "[:lower:]" "[:upper:]"<$file
