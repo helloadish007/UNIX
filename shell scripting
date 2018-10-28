@@ -35,4 +35,7 @@ example 2:
 #!/bin/sh
 a="cd adish"
 eval $a              //to execute instructions stored as string
+--------------------------------------
+exec:
+exec replaces the current program in the current process, without forking a new process.
 
