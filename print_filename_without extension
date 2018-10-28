@@ -1,0 +1,6 @@
+#!/bin/sh
+for  i in $(ls)
+do
+	ext=${i%.*}
+	echo "$i:file name without extension is :$ext"
+done
