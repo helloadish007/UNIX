@@ -22,4 +22,17 @@ y=2
 z=3
 let s=x+y+z
 echo "sum is $s"
+-------------------------------
+eval:
+example 1:
+#!/bin/sh
+a=10
+b=a
+eval c="$"$b
+echo "value is $c"   //to display the value stored in a variable whose value is in another variable
+o/p:10
+example 2:
+#!/bin/sh
+a="cd adish"
+eval $a              //to execute instructions stored as string
 
