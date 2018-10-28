@@ -87,7 +87,9 @@ cal;;
 5)exit;;
 *)echo "invalid entry"
 esac 
-
+-----------------------------
+extension="${filename##*.}"
+filename="${filename%.*}"
 
 
 
