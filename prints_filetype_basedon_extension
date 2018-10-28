@@ -1,0 +1,11 @@
+#!/bin/sh
+for  i in $(ls)
+do
+	ext=${i##*.}
+	case "$ext" in
+	py)echo "$i:python file";;
+	txt)echo "$i :text file";;
+	sh)echo "$i:shell script";;
+	*)echo "$i:unknown type"
+	esac
+done
