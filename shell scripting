@@ -1,0 +1,25 @@
+sh filename.sh --> executes without permission
+. filename.sh  -->executes without permission
+--------------------
+export:
+t1.sh:
+#!/bin/sh
+x=12
+----------------
+t2.sh:
+#!/bin/sh
+. t1.sh
+export x
+echo "exported value of x is $x"
+-------------------
+o/p:user@user-SVE1511AENB:~$ . t2.sh
+    exported value of x is 12
+    -------------------------------
+let:     replaces $(( ))
+#! /bin/sh
+x=12
+y=2
+z=3
+let s=x+y+z
+echo "sum is $s"
+
