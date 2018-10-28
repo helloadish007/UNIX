@@ -70,14 +70,15 @@ user@user-SVE1511AENB:~$ [ $x -eq $y ];echo $?
 case:
 example:
 #!/bin/sh
+a="y"
+while [ $a = "y" ]
+do
 echo -e " 1.LIST OF FILES\n
 2.PROCESSES OF USER\n
 3.DISPLAY TODAYS DATE AND CALENDAR\n
 4.USERS OF THE SYSYTEM\n
-5.QUIT\n
-"
-read -p "enter the choice" ch
-s=5
+5.QUIT\n"
+read -p "enter the choice " ch
 case "$ch" in
 1)ls -l;;
 2)ps;;
@@ -87,6 +88,12 @@ cal;;
 5)exit;;
 *)echo "invalid entry"
 esac 
+read -p"do yu want to continue? " a
+if [ $a != "y" ]
+then
+	exit
+fi
+done
 -----------------------------
 extension="${filename##*.}"
 filename="${filename%.*}"
