@@ -38,4 +38,58 @@ eval $a              //to execute instructions stored as string
 --------------------------------------
 exec:
 exec replaces the current program in the current process, without forking a new process.
+----------------------------------------
+logical operators for commands {  &&  || }:
+cmd1 && cmd2 //cmd2 is executed only if cmd 1 succeeds
+example:
+user@user-SVE1511AENB:~$ cat z
+zodiac
+zombie 
+zoo
+zinc
+user@user-SVE1511AENB:~$ grep zo z && grep ze z
+zodiac
+zombie 
+zoo
+user@user-SVE1511AENB:~$ grep ze z && grep zo z  //will no be executed since grep ze z fails......ze doesnt exist in file z
+-----------------------------
+-----------------------------
+user@user-SVE1511AENB:~$ grep zo z  || echo "pattern not found"
+zodiac
+zombie 
+zoo
+---------------------------------------
+using test and [] to evaluate expressions:
+user@user-SVE1511AENB:~$ x=5;y=6;z=5;
+user@user-SVE1511AENB:~$ test $x -eq $z;echo $?
+0   //means x and z are the same
+CAN USE [] INSTEAD OF TEST
+user@user-SVE1511AENB:~$ [ $x -eq $y ];echo $?
+1  //means x and y are not same
+-----------------------------------------
+case:
+example:
+#!/bin/sh
+echo -e " 1.LIST OF FILES\n
+2.PROCESSES OF USER\n
+3.DISPLAY TODAYS DATE AND CALENDAR\n
+4.USERS OF THE SYSYTEM\n
+5.QUIT\n
+"
+read -p "enter the choice" ch
+s=5
+case "$ch" in
+1)ls -l;;
+2)ps;;
+3)date
+cal;;
+4)who;;
+5)exit;;
+*)echo "invalid entry"
+esac 
+
+
+
+
+
 
