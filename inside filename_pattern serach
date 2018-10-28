@@ -1,0 +1,4 @@
+#!/bin/sh
+read -p "enter the filename " fname
+read -p"enter the pattern " p
+grep $p $fname
