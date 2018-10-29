@@ -1,0 +1,127 @@
+1.write a shell script to accept two filenames and check if both exists.
+if the second filename exists ,then the contents of the first filename shoild be appended to it.
+if the second filename does not exist then create a new file with the contents of the first file??
+
+code:
+#! /bin/sh
+read -p "ENTER THE FIRST FILE NAME: " f1
+read -p "ENTER THE SECOND FILE NAME: " f2
+if [ -s $f2 -a $f1 ]
+then
+echo " FILE 1 and 2 EXISTS"
+fi
+if [ -s $f2 ]
+then 
+cat $f1>>$f2
+echo "$f1 APPENDED TO $f2"
+cat $f2
+elif [ ! -s $f2 ]
+then 
+echo "$f2 DOES NOT EXISTS "
+read -p "ENTER THE NEW FILE NAME: " new
+cat $f1>>$new 
+echo "$f1 APPENDED TO $f2"
+cat $new
+fi
+
+2.write a shell script that computes the gross salary of a employee according to the following:
+1)if basic salary is <1500 then HRA 10% of the basic and DA =90% of the basic
+2)if basic salary is >=1500 then HRA=500 of the basic and DA =98% of the basic
+basic salary enterd through keyboard??
+
+code:
+#! /bin/sh
+hra=0
+da=0
+gross=0
+read -p"ENTER THE BASIC SALARY: " bs
+if [ $bs -lt 1500 ]
+then
+hra=$(echo "0.1 * $bs"|bc -l)
+da=$(echo "0.9 * $bs"|bc -l)
+gross=$(echo "$gross + $hra + $da"|bc -l)
+echo "HRA IS GIVEN AS : $hra"
+echo "DA IS GIVEN AS : $da"
+echo "GROSS SALARY IS GIVEN AS : $gross"
+elif [ $bs -ge 1500 ]
+then
+hra=500
+da=$(echo "0.98 * $bs"|bc -l)
+gross=$(echo "$gross+$hra+$da"|bc -l)
+echo "HRA IS GIVEN AS : $hra"
+echo "DA IS GIVEN AS : $da"
+echo "GROSS SALARY IS GIVEN AS : $gross"
+fi
+
+3.write a shell script that accepts a filename ,starting and ending line numbers as arguements and displays
+all the lines between the given line numbers??
+
+code:
+#! /bin/sh
+c=$1
+d=$(($2-1))
+read -p "ENTER THE FILENAME: " fname
+while [ $c -lt $d ]
+do
+c=$(($c+1))
+awk "NR==$c" $fname
+done
+
+4.write a shell script that deletes all lines containing a specified word in one or more files supplied as arguements to it??
+
+code:
+#! /bin/sh
+read -p "ENTER THE WORD TO WIPED OFF: " word
+for i in $*
+do
+sed -i ''"/$word/d" $i
+done
+
+5.write a shell script that displays a list of all the files in the current directory to which the user has read,write
+and execute permissions??
+
+code:
+#! /bin/sh
+find $pwd -maxdepth 1 -not -type d -perm 777
+
+6.write a shell script that  recieves any number of filenames as arguements checks if every arguement supplied is a file or
+directory and reports accordingly.whenever the arguement is a file ,the numberof lines on it is also reported??
+
+code:
+#! /bin/sh
+for i in $*
+do
+if [ -f $i ]
+then
+echo " $i IS A FILE"
+echo "THE NUMBER OF LINES IN FILE : GIVEN AS {NUMBER OF LINES} {FILE NAME}"
+wc -l $i
+elif [ -d $i ]
+then
+echo " $i IS A DIRECTORY"
+else
+echo "NOT A FILE NOR A DIRECTORY"
+fi
+done
+
+7.write a shell script that accepts a list of filenames as its arguments ,counts and reports the occurence of each
+word that is  present in the first argument files??
+
+code:
+#! /bin/sh
+c=1
+read -a WORDS -d "" < $1
+shift 
+for i in $*
+do
+if [ -f $i ]
+then
+for word in "${WORDS[@]}"
+do
+no=$(cat $i|grep -c "$word")
+echo " NUMBER OF OOCURENCES OF $word IN $i FILE IS $no"
+done
+fi 
+done
+
+--------------------------------------------------------------------------------------------
