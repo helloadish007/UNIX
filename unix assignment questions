@@ -118,7 +118,7 @@ if [ -f $i ]
 then
 for word in "${WORDS[@]}"
 do
-no=$(cat $i|grep -c "$word")
+no=$(cat $i|grep -o "$word"|wc -l)
 echo " NUMBER OF OOCURENCES OF $word IN $i FILE IS $no"
 done
 fi 
