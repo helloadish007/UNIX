@@ -1,0 +1,173 @@
+
+    sed is a “non-interactive” stream-oriented editor. Since its an “non-interactive” it can be used to automate editing if desired.
+    The name sed is an abbreviation for stream editor, and the utility derives many of its commands from the ed line-editor (ed was the first UNIX text editor).
+    This allows you to edit multiple files, or to perform common editing operations without ever having to open vi or emacs.
+    sed reads from a file or from its standard input, and outputs to its standard output.
+    sed has two buffers which are called pattern buffer and hold buffer. Both are initially empty.
+
+
+1.TO DISPLAY A RANGE FROM A FILE. 
+
+adish007@ADISH007:~/Desktop$ cat -b o
+     1	adish#
+     2	ldlkn
+     3	ijdl4
+     4	arun
+     5	mmmmm
+     6	hmmm
+adish007@ADISH007:~/Desktop$ sed -n '3,6p' o   /p-for printing fromo print buffer.
+ijdl4
+arun
+mmmmm
+hmmm
+2.TO DISPLAY ENTIRE FILE EXCEPT A GIVEN RANGE.
+
+adish007@ADISH007:~/Desktop$ cat -b o
+     1	adish#
+     2	ldlkn
+     3	ijdl4
+     4	arun
+     5	mmmmm
+     6	hmmm
+adish007@ADISH007:~/Desktop$ sed '2,4d' o
+adish#
+mmmmm
+hmmm
+3.TO  DISPLAY NON CONSECUTIVE LNES FROM A FILE
+
+adish007@ADISH007:~/Desktop$ cat -b o
+     1	adish#
+     2	ldlkn
+     3	ijdl4
+     4	arun
+     5	mmmmm
+     6	hmmm
+adish007@ADISH007:~/Desktop$ sed -n -e '1,2p' -e '4,6p' o
+adish#
+ldlkn
+arun
+mmmmm
+hmmm
+4.REPLACE THE FIRST OCCURENCE IN EACH LINE
+
+adish007@ADISH007:~/Desktop$ cat >s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed 's\unix\thenga\' s
+thenga is great os. unix is opensource. unix is free os.
+learn operating system.
+thenga linux which one you choose.
+thenga is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+5.REPLACE ALL THE OCCURENCES OF THE WORD IN FILE
+
+adish007@ADISH007:~/Desktop$ cat s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed 's/unix/manga/g' s
+manga is great os. manga is opensource. manga is free os.
+learn operating system.
+manga linux which one you choose.
+manga is easy to learn.manga is a multiuser os.Learn manga .manga is a powerful
+6.REPLACE ONLY THE SECOND OCUURENCE OF THE WORD IN EACH LINE
+
+adish007@ADISH007:~/Desktop$ cat s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed 's/unix/manga/2' s
+unix is great os. manga is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.manga is a multiuser os.Learn unix .unix is a powerful
+7.REPLACE ALL WORDS FROM THE SECOND OCCURENCE UPTO THE END OF EACH LINE.
+
+adish007@ADISH007:~/Desktop$ cat s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed 's/unix/hello/2g' s
+unix is great os. hello is opensource. hello is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.hello is a multiuser os.Learn hello .hello is a powerful
+8.PARANTHESIZE THE FIRST CHARACTER
+
+echo "Welcome To The Geek Stuff" | sed 's/\(\b[A-Z]\)/\(\1\)/g'
+9.REPLACE WORDS FROM SPECIFIED LINES
+
+adish007@ADISH007:~/Desktop$ cat s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed '4s/unix/123/' s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+123 is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed '4s/unix/123/g' s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+123 is easy to learn.123 is a multiuser os.Learn 123 .123 is a powerful
+10.REPLACE WORDS FROM RANGE OF LINES
+
+adish007@ADISH007:~/Desktop$ cat s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed '1,3s/unix/123456/g' s
+123456 is great os. 123456 is opensource. 123456 is free os.
+learn operating system.
+123456 linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+11.DELETE THE THIRD LINE FROM THE FILE
+
+adish007@ADISH007:~/Desktop$ cat -b s
+     1	unix is great os. unix is opensource. unix is free os.
+     2	learn operating system.
+     3	unix linux which one you choose.
+     4	unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed '3d' s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+12.DELTE THE LAST LINE 
+
+adish007@ADISH007:~/Desktop$ cat -b s
+     1	unix is great os. unix is opensource. unix is free os.
+     2	learn operating system.
+     3	unix linux which one you choose.
+     4	unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+adish007@ADISH007:~/Desktop$ sed '$d' s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+13.TO BACKUP THE ORIGINAL FILE WHILE MAKING CHANGES TO ORIGINAL FILE
+
+adish007@ADISH007:~/Desktop$ cat s
+ABC is great os. 600 is opensource. 44 is free os.
+learn operating system.
+ABC linux which one you choose.
+ABC is easy to learn.600 is a multiuser os.Learn 44 .44 is a powerful
+adish007@ADISH007:~/Desktop$ sed -i.o 's/ABC/ZZZ/' s
+adish007@ADISH007:~/Desktop$ cat s.o                     $$here s.o is the backup of the original file s.
+ABC is great os. 600 is opensource. 44 is free os.
+learn operating system.
+ABC linux which one you choose.
+ABC is easy to learn.600 is a multiuser os.Learn 44 .44 is a powerful
+adish007@ADISH007:~/Desktop$ cat s
+ZZZ is great os. 600 is opensource. 44 is free os.
+learn operating system.
+ZZZ linux which one you choose.
+ZZZ is easy to learn.600 is a multiuser os.Learn 44 .44 is a powerful
+
+14.
+
