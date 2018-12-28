@@ -169,5 +169,25 @@ learn operating system.
 ZZZ linux which one you choose.
 ZZZ is easy to learn.600 is a multiuser os.Learn 44 .44 is a powerful
 
-14.
+14.TO CHANGE ALL THE WORDS INCLUDING UPPERCASE AS WELL AS LOWERCASE LETTERS
+
+
+adish007@ADISH007:~/Desktop$ cat s
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+unix UNIX UNIX UNIX unix unix 
+adish007@ADISH007:~/Desktop$ sed 's/unix/ABCD/g' s
+ABCD is great os. ABCD is opensource. ABCD is free os.
+learn operating system.
+ABCD linux which one you choose.
+ABCD is easy to learn.ABCD is a multiuser os.Learn ABCD .ABCD is a powerful
+ABCD UNIX UNIX UNIX ABCD ABCD 
+adish007@ADISH007:~/Desktop$ sed 's/unix/ABCD/gi' s
+ABCD is great os. ABCD is opensource. ABCD is free os.
+learn operating system.
+ABCD linux which one you choose.
+ABCD is easy to learn.ABCD is a multiuser os.Learn ABCD .ABCD is a powerful
+ABCD ABCD ABCD ABCD ABCD ABCD 
 
