@@ -1,0 +1,11 @@
+finger command is used to lookup information about an user.
+
+adish007@ADISH007:~$ finger
+Login     Name        Tty      Idle  Login Time   Office     Office Phone
+adish007  ADISH.A.P  *:0             Dec 28 07:34 (:0)
+adish007@ADISH007:~$ finger adish007
+Login: adish007       			Name: ADISH.A.P
+Directory: /home/adish007           	Shell: /bin/bash
+On since Fri Dec 28 07:34 (IST) on :0 from :0 (messages off)
+No mail.
+No Plan.
