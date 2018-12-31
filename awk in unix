@@ -265,4 +265,59 @@ random number is 71
 random number is 27
 random number is 72
 
+AWK CONTROL FLOW
+--------------------------------
+AWK provides conditional statements to control the flow of a program. 
 
+1.IF STATEMENT
+
+    adish007@ADISH007:~$ awk 'BEGIN{n=10;if(n%2==0) printf "%d is even\n",n}'
+    10 is even
+2.IF ELSE STATEMENT
+
+    adish007@ADISH007:~$ awk 'BEGIN {n=10;if(n%2==0) printf "%d is even\n",n;else printf "%d is not even\n",n}'
+    10 is even
+    adish007@ADISH007:~$ awk 'BEGIN {n=11;if(n%2==0) printf "%d is even\n",n;else printf "%d is not even\n",n}'
+    11 is not even
+3.IF ELSE IF LADDER
+    adish007@ADISH007:~$ awk 'BEGIN { n=1; if(n==1) print "criz" ; else if (n==2) print "npk" ;else if (n==3) print "unknown"}'
+    criz
+    adish007@ADISH007:~$ awk 'BEGIN { n=2; if(n==1) print "criz" ; else if (n==2) print "npk" ;else if (n==3) print "unknown"}'
+    npk
+    adish007@ADISH007:~$ awk 'BEGIN { n=3; if(n==1) print "criz" ; else if (n==2) print "npk" ;else if (n==3) print "unknown"}'
+    unknown
+    
+AWK ARRAY
+--------------------------------------------------------
+AWK has associative arrays and one of the best thing about it is – the indexes need not to be continuous set of number; 
+you can use either string or number as an array index. 
+Also, there is no need to declare the size of an array in advance – arrays can expand/shrink at runtime.    
+
+1.CREATING AN ARRAY
+
+adish007@ADISH007:~$ awk 'BEGIN { a["x"]="criz";a["y"]="npk";a["z"]="bala";print a["x"] "\n" a["y"] "\n" a["z"] }'
+criz
+npk
+bala
+
+2.DELETING AN ELEMENT OF AN ARRAY
+
+adish007@ADISH007:~$ awk 'BEGIN { a["x"]="criz";a["y"]="npk";a["z"]="bala";delete a["x"];print a["x"] }'
+
+adish007@ADISH007:~$ awk 'BEGIN { a["x"]="criz";a["y"]="npk";a["z"]="bala";print a["x"] }'
+criz
+
+3.SIMULATION OF MULTIDIMENSIONAL ARRAY USING 1-D ARRAY
+
+adish007@ADISH007:~$ awk 'BEGIN { a[0,0]="criz";a[0,1]="npk";a[0,2]="bala";a[1,0]="vg";a[1,1]="muhs";a[1,2]="reppan";print a[1,2] }'
+reppan
+adish007@ADISH007:~$ awk 'BEGIN { a[0,0]="criz";a[0,1]="npk";a[0,2]="bala";a[1,0]="vg";a[1,1]="muhs";a[1,2]="reppan";print a[1,1] }'
+muhs
+adish007@ADISH007:~$ awk 'BEGIN { a[0,0]="criz";a[0,1]="npk";a[0,2]="bala";a[1,0]="vg";a[1,1]="muhs";a[1,2]="reppan";print a[1,0] }'
+vg
+adish007@ADISH007:~$ awk 'BEGIN { a[0,0]="criz";a[0,1]="npk";a[0,2]="bala";a[1,0]="vg";a[1,1]="muhs";a[1,2]="reppan";print a[0,0] }'
+criz
+adish007@ADISH007:~$ awk 'BEGIN { a[0,0]="criz";a[0,1]="npk";a[0,2]="bala";a[1,0]="vg";a[1,1]="muhs";a[1,2]="reppan";print a[0,1] }'
+npk
+adish007@ADISH007:~$ awk 'BEGIN { a[0,0]="criz";a[0,1]="npk";a[0,2]="bala";a[1,0]="vg";a[1,1]="muhs";a[1,2]="reppan";print a[0,2] }'
+bala
