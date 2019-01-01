@@ -1,0 +1,105 @@
+ls command
+------------------------------
+
+1.ls - list directory contents.
+
+adish007@ADISH007:~$ ls
+ 1            c             Desktop     e.c                Music      s
+ a            currency.py   Documents   e.op               o.py       Templates
+ b            d             Downloads   examples.desktop   Pictures   Videos
+'bank dbms'  'dbms exam'    e           hi                 Public
+
+2.ls-l :provides a long listing of files
+
+adish007@ADISH007:~$ ls -l
+total 108
+drwxr-xr-x 3 adish007 adish007 4096 Dec 28 17:09  1
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  a
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  b
+-rw-rw-r-- 1 adish007 adish007 6778 Nov 25 16:17 'bank dbms'
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  c
+-rw-r--r-- 1 adish007 adish007  287 Nov 20 08:22  currency.py
+-rw-r--r-- 1 adish007 adish007 4204 Nov 26 19:10  d
+-rw-r--r-- 1 adish007 adish007 2135 Nov 29 06:46 'dbms exam'
+drwxr-xr-x 2 adish007 adish007 4096 Dec 30 09:12  Desktop
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Documents
+drwxr-xr-x 2 adish007 adish007 4096 Dec  7 15:17  Downloads
+-rw-r--r-- 1 adish007 adish007  206 Dec 31 08:15  e
+-rw-r--r-- 1 adish007 adish007  218 Dec 30 09:13  e.c
+-rw-r--r-- 1 adish007 adish007  220 Dec 30 07:26  e.op
+-rw-r--r-- 1 adish007 adish007 8980 Nov 14 00:04  examples.desktop
+-rw-r--r-- 1 adish007 adish007  243 Jan  1 08:47  hi
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Music
+-rw-r--r-- 1 adish007 adish007   30 Nov 19 16:48  o.py
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 16:29  Pictures
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Public
+-rw-r--r-- 1 adish007 adish007 1452 Nov 29 06:48  s
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Templates
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Videos
+
+3.ls- lS :TO SORT DIRECTORY BY FILE SIZES
+
+adish007@ADISH007:~$ ls -lS
+total 108
+-rw-r--r-- 1 adish007 adish007 8980 Nov 14 00:04  examples.desktop
+-rw-rw-r-- 1 adish007 adish007 6778 Nov 25 16:17 'bank dbms'
+-rw-r--r-- 1 adish007 adish007 4204 Nov 26 19:10  d
+drwxr-xr-x 3 adish007 adish007 4096 Dec 28 17:09  1
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  a
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  b
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  c
+drwxr-xr-x 2 adish007 adish007 4096 Dec 30 09:12  Desktop
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Documents
+drwxr-xr-x 2 adish007 adish007 4096 Dec  7 15:17  Downloads
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Music
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 16:29  Pictures
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Public
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Templates
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Videos
+-rw-r--r-- 1 adish007 adish007 2135 Nov 29 06:46 'dbms exam'
+-rw-r--r-- 1 adish007 adish007 1452 Nov 29 06:48  s
+-rw-r--r-- 1 adish007 adish007  287 Nov 20 08:22  currency.py
+-rw-r--r-- 1 adish007 adish007  243 Jan  1 08:47  hi
+-rw-r--r-- 1 adish007 adish007  220 Dec 30 07:26  e.op
+-rw-r--r-- 1 adish007 adish007  218 Dec 30 09:13  e.c
+-rw-r--r-- 1 adish007 adish007  206 Dec 31 08:15  e
+-rw-r--r-- 1 adish007 adish007   30 Nov 19 16:48  o.py
+
+4.ls -lr:To list the contents in reverse order
+
+adish007@ADISH007:~$ ls -lr
+total 108
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Videos
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Templates
+-rw-r--r-- 1 adish007 adish007 1452 Nov 29 06:48  s
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Public
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 16:29  Pictures
+-rw-r--r-- 1 adish007 adish007   30 Nov 19 16:48  o.py
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Music
+-rw-r--r-- 1 adish007 adish007  243 Jan  1 08:47  hi
+-rw-r--r-- 1 adish007 adish007 8980 Nov 14 00:04  examples.desktop
+-rw-r--r-- 1 adish007 adish007  220 Dec 30 07:26  e.op
+-rw-r--r-- 1 adish007 adish007  218 Dec 30 09:13  e.c
+-rw-r--r-- 1 adish007 adish007  206 Dec 31 08:15  e
+drwxr-xr-x 2 adish007 adish007 4096 Dec  7 15:17  Downloads
+drwxr-xr-x 2 adish007 adish007 4096 Nov 14 06:56  Documents
+drwxr-xr-x 2 adish007 adish007 4096 Dec 30 09:12  Desktop
+-rw-r--r-- 1 adish007 adish007 2135 Nov 29 06:46 'dbms exam'
+-rw-r--r-- 1 adish007 adish007 4204 Nov 26 19:10  d
+-rw-r--r-- 1 adish007 adish007  287 Nov 20 08:22  currency.py
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  c
+-rw-rw-r-- 1 adish007 adish007 6778 Nov 25 16:17 'bank dbms'
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  b
+drwxr-xr-x 2 adish007 adish007 4096 Dec 28 17:09  a
+drwxr-xr-x 3 adish007 adish007 4096 Dec 28 17:09  1
+
+5.ls- c:To list contents by columns
+
+adish007@ADISH007:~$ ls -c
+ hi     Desktop   c          'dbms exam'    o.py        Videos
+ e      1         Pictures    d             Documents   Templates
+ e.c    a         Downloads  'bank dbms'    Music       examples.desktop
+ e.op   b         s           currency.py   Public
+
+6.Sort by time and date: ls -d
+7.Sort by extension: ls -X
