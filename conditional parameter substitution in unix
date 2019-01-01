@@ -1,5 +1,5 @@
 1 	
-COMMAND SUBSTITUION IN UNIX:
+CONDITIONAL PARAMETER SUBSTITUION IN UNIX:
 -------------------------------------------------------------------------------------------
 ${var}
 
