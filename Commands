@@ -1,0 +1,108 @@
+1) mkdir-->mkdir stands for “make directory.”
+
+==> Create multiples directories in a single stretch:
+
+(base) adish@adish007:~/test$ mkdir {t1,t2,t3}
+(base) adish@adish007:~/test$ ls
+t1  t2  t3
+# here t1 t2 t3 are the directories
+
+==>Building multiple sub directories using -p option:
+    
+      mkdir adds any missing parent directories in the process.
+(base) adish@adish007:~/test$ mkdir -p hi/hello/123
+(base) adish@adish007:~/test$ ls -R
+.:
+hi  t1  t2  t3
+
+./hi:
+hello
+
+./hi/hello:
+123
+
+./hi/hello/123:
+
+./t1:
+
+./t2:
+
+./t3:
+
+Use ls -R to show the recursive directory tree.
+
+
+==> setting permission using mkdir
+
+The mkdir command by default gives rwx permissions for the current user only.
+To add read, write, and execute permission for all users, add the -m option with the user 777 when creating a director
+
+(base) adish@adish007:~/test$ mkdir -m777 perm
+(base) adish@adish007:~/test$ ls -l
+total 20
+drwxr-xr-x 3 adish adish 4096 Aug 31 18:58 hi
+drwxrwxrwx 2 adish adish 4096 Aug 31 19:04 perm
+drwxr-xr-x 2 adish adish 4096 Aug 31 18:54 t1
+drwxr-xr-x 2 adish adish 4096 Aug 31 18:54 t2
+drwxr-xr-x 2 adish adish 4096 Aug 31 18:54 t3
+
+#owner#group#other_users
+
+To list all directories and show the permissions sets: -l
+
+2) rm --> remove
+
+# To delete files "one.txt", "two.txt", and "three.txt" from the current directory:
+rm one.txt two.txt three.txt
+ 
+# To delete all files in the current directory:
+# WARNING Files can not be undeleted so be careful with the following command.
+rm *
+ 
+# To delete all files from the "$HOME/jon" directory:
+rm $HOME/jon/*
+ 
+# To recursively delete all files and sub-directories from "$HOME/jon/"
+rm -rf $HOME/jon/*
+ 
+# To delete files interactively (prompt for confirm):
+rm -i *
+ 
+# To delete all *.docx files (files ending with .docx extensions):
+rm *.docx
+ 
+# To delete all files in the current directory that have the string music in their file name:
+rm *music*
+ 
+# To delete all files that begin with a lower case letter z:
+rm z*
+ 
+# To delete all files in the current directory whose names, inclusive of any
+# extensions, are exactly three characters in length:
+rm ???
+ 
+# The following would tell the rm command to delete all files in the current
+# directory that begin with the letter z and are six characters in length:
+rm z?????
+ 
+# To delete all files in the current directory that have a two-character
+# filename extension:
+rm *.??
+ 
+# To delete all files in the current directory that have an A, B and/or C in
+# them:
+rm *[ABC]*
+ 
+# To delete all files that have digits (zero to nine) in them i.e. at least one
+# numeral in filename:
+rm *[0-9]*
+ 
+# To delete all files had an extension that begins with c or h:
+rm *.[ch]*
+ 
+# To delete all filenames in the current directory that consist of images
+# followed by a two-digit number:
+rm images[0-9][0-9].png
+ 
+
+
